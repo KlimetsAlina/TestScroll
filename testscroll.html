@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>Тест прокрутки</title>
+        <link rel="stylesheet" href="style2.css">
+    </head>
+    <body>
+        <section>
+            <p>Section number 1</p>
+            <img src="arrow_down.png" class="down" onclick="movePage(this)">
+        </section>
+        <section>
+            <img src="arrow_up.png" class="up" onclick="movePage(this)">
+            <p>Section number 2</p>
+            <img src="arrow_down.png" class="down" onclick="movePage(this)">
+        </section>
+        <section>
+            <img src="arrow_up.png" class="up" onclick="movePage(this)">
+            <p>Section number 3</p>
+        </section>
+        <script>
+            function movePage(objec) {
+                var direction = 0;
+                if (objec.className == "down") {
+                    direction = 1;
+                } else if (objec.className == "up") {
+                    direction = -1;
+                }
+                window.scrollBy({
+                    top: window.innerHeight * direction,
+                    behavior: 'smooth'
+                });
+            }
+        </script>
+    </body>
+</html>
